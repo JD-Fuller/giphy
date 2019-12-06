@@ -14,13 +14,13 @@ export default class GifsController {
     console.log("Hello from the controller");
     store.subscribe("gif", _drawGifs);
     service.getGifAsync();
+    service.saveActiveGifAsync();
   }
 
   async saveActiveGifAsync() {
     try {
       await service.saveActiveGifAsync();
     } catch (error) {
-      debugger;
       console.error(error);
     }
   }

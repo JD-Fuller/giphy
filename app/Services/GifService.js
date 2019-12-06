@@ -8,7 +8,7 @@ let _gifApi = axios.create({
 });
 
 let _sandbox = axios.create({
-  baseURL: "https://bcw-sandbox.herokuapp.com/api/jdfuller/gifs/"
+  baseURL: "https://bcw-sandbox.herokuapp.com/api/jdfuller/gifs"
 });
 
 class GifService {
@@ -21,13 +21,15 @@ class GifService {
       `random?api_key=OMFRoicT56uoKJ5rGI4b32wHgyTopGaU&tag=&rating=G`
     );
     // let res = await _gifApi.get(`random?api_key=${apiKey}&tag=&rating=G`);
+    console.log("This is right before I commit", store.State.gif);
     store.commit("gif", new Gif(res.data.data));
-    console.log("this is random data", res.data);
-    console.log("from the store - getGifAsync", store.State.gif);
+    console.log("This is right after I commit", store.State.gif);
   }
 
   async saveActiveGifAsync() {
     let activeGif = store.State.gif;
+    console.log("this is the activeGiv", activeGif);
+    debugger;
     let res = await _sandbox.post("", activeGif);
     console.log("from saveActiveGifAsync", res);
   }

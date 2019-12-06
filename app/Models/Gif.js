@@ -1,7 +1,7 @@
 export default class Gif {
   constructor(data) {
     this.title = data.title;
-    this.image_mp4_url = data.image_mp4_url || data.url;
+    this.url = data.image_mp4_url || data.url;
   }
 
   get Template() {
@@ -9,7 +9,7 @@ export default class Gif {
     <div class="card" style="width:400px; text-align: center;">
               <video autoplay loop
                 class="card-img-top"
-                src="${this.image_mp4_url}"
+                src="${this.url}"
                 alt="gif image"></video>
               <div class="card-body">
                 <h4 class="card-title" style="font-variant: all-small-caps;">${this.title}</h4>
